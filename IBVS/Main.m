@@ -177,8 +177,8 @@ while ~complete
     % Spatial velocity
     %------ Your code here, calculate spatial velocity--------------
     % Hint: equation (4) in the paper
-    Le = inv(Lx' .* Lx) .* Lx;
-    V_b_e = -Lambda * Le .* visual_feature_error;
+    Le = pinv(Lx);
+    V_b_e = -Lambda * (Le * visual_feature_error);
     %---------------------------------------------------------------
 
     %% Inverse Velocity Kinematics of Robot Manipulator
