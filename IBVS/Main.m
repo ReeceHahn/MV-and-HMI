@@ -125,9 +125,7 @@ Lambda = 10;
 i = 1;
 %% VS Loop Start
 
-complete = false;
-
-while ~complete
+while true
     %% Error (i.e. distance between current position and desired position of end-effector)
     % Extract current position from the T_s_e_current 
     % Require a bit of robotics knowledge, see 
@@ -144,7 +142,7 @@ while ~complete
     distance = norm(displacement_vector);
 
     if distance < error_max
-        complete = true;
+        break;
     end
     %---------------------------------------------------------------
     %% Visual Feature & Visual Feature Error
